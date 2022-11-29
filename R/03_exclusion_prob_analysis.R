@@ -117,7 +117,6 @@ sp.metrics$intraguild.type[sp.metrics$intraguild.type == "nesting_larvae"] <- "R
 sp.metrics$intraguild.type[sp.metrics$intraguild.type == "nesting_larvae_phenology"] <- "Resources and \nphenology"
 
 # -------------------------------------------------------------------------
-# 1 - probabilities of exclusion and complexity
 
 exc.obs$guild.num <- "one"
 exc.obs$guild.num[exc.obs$guilds %in% c("Plants-Pollinators",
@@ -126,6 +125,10 @@ exc.obs$guild.num[exc.obs$guilds == "All"] <- "three"
 exc.obs$guild.num <- factor(exc.obs$guild.num,levels = c("one","two","three"))
 exc.obs$sp.guild <- sp.metrics$sp.guild[match(exc.obs$species,sp.metrics$species)]
 exc.obs$sp.guild <- factor(exc.obs$sp.guild, levels = c("plants","herbivores","floral visitors"))  
+exc.obs <- subset(exc.obs, !is.na(sp.guild))
+
+# -------------------------------------------------------------------------
+# 1 - probabilities of exclusion and complexity
 
 richness.data <- comm.metrics %>% 
   filter(metric == "richness") %>% 

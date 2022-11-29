@@ -124,11 +124,12 @@ fd.dif <- lm(omega_mean ~ guild.num * intraguild.type, data = r1.data)
 fd.aov3 <- car::Anova(fd.dif,type = 3)
 
 # -------------------------------------------------------------------------
-fd.rich <- lm(omega_mean ~ richness.scaled * intraguild.type, data = r1.data)
+fd.rich <- lm(log(omega_mean) ~ richness.scaled * intraguild.type, data = r1.data)
+
 # summary(fd.rich)
 # DHARMa::testResiduals(fd.rich)
 
-# print(xtable::xtable(as.data.frame(tidy(fd.rich)),floating=FALSE, 
+# print(xtable::xtable(as.data.frame(tidy(fd.rich)),floating=FALSE,
 #       digits = 5,
 #       latex.environments=NULL,
 #       booktabs=FALSE))
@@ -229,22 +230,23 @@ metrics.scaled$avg_diagonal_dominance <- scales::rescale(metrics.scaled$avg_diag
 metrics.scaled$avg_intraguild_niche_overlap <- scales::rescale(metrics.scaled$avg_intraguild_niche_overlap)
 metrics.scaled$avg_interguild_niche_overlap <- scales::rescale(metrics.scaled$avg_interguild_niche_overlap)
 
-m2 <- lmerTest::lmer(omega_mean ~ avg_diagonal_dominance + avg_intraguild_niche_overlap + avg_interguild_niche_overlap + (1|plot),
+m2 <- lmerTest::lmer(log(omega_mean) ~ avg_diagonal_dominance + avg_intraguild_niche_overlap + avg_interguild_niche_overlap + (1|plot),
                      data = metrics.scaled)
+
 # car::vif(m2)
 # broom.mixed::tidy(m2)
-## the residuals look good
+## the residuals look reasonable
 # DHARMa::testResiduals(m2)
 
 # print(xtable::xtable(as.data.frame(broom.mixed::tidy(m2)),
-#                      floating=FALSE, 
+#                      floating=FALSE,
 #                      digits = 5,
 #                      latex.environments=NULL,
 #                      booktabs=FALSE))
 # -------------------------------------------------------------------------
 
-edd <- effects::effect("avg_diagonal_dominance",m2,xlevels = 20)
-eintra <- effects::effect("avg_intraguild_niche_overlap",m2,xlevels = 20)
+edd <- effects::effect("avg_diagonal_dominance",m22,xlevels = 20)
+eintra <- effects::effect("avg_intraguild_niche_overlap",m22,xlevels = 20)
 # plot(ec)
 # plot(ed)
 
@@ -254,20 +256,21 @@ eintra.df <- data.frame(eintra)
 dd.plot <- ggplot(edd.df,aes(y = fit, x = avg_diagonal_dominance)) +
   geom_ribbon(aes(ymin = lower, ymax = upper), fill = "grey", alpha = .3) +
   geom_line()+
-  geom_point(data = metrics.scaled,aes(x = avg_diagonal_dominance, y = omega_mean))+
+  geom_point(data = metrics.scaled,aes(x = avg_diagonal_dominance, y = log(omega_mean)))+
   theme_bw() +
-  labs(x="Average diagonal dominance (scaled)",y = "Feasibility domain") +
-  ylim(c(0.27,0.41)) +
+  labs(x="Average diagonal dominance (scaled)",y = "log(feasibility domain)") +
+  scale_y_continuous(limits = c(-1.3,-0.9),breaks=seq(-1.3,-0.9,.1)) +
   ggtitle(label = "A)") +
   NULL
 
 intra.plot <- ggplot(eintra.df,aes(y = fit, x = avg_intraguild_niche_overlap)) +
   geom_ribbon(aes(ymin = lower, ymax = upper), fill = "grey", alpha = .3) +
   geom_line()+
-  geom_point(data = metrics.scaled,aes(x = avg_intraguild_niche_overlap, y = omega_mean))+
+  geom_point(data = metrics.scaled,aes(x = avg_intraguild_niche_overlap, y = log(omega_mean)))+
   theme_bw() +
   labs(x="Average intra-guild interaction overlap (scaled)",y = "") +
-  ylim(c(0.27,0.4)) +
+  # ylim(c(-1.3,-0.9))+
+  scale_y_continuous(limits = c(-1.3,-0.9),breaks=seq(-1.3,-0.9,.1)) +
   ggtitle(label = "B)") +
   NULL
 

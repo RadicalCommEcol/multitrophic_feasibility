@@ -64,8 +64,8 @@ exc.plot <- ggplot(sp.clean, aes(x = sp.guild, y = log(prob_excl_rel))) +
   geom_boxplot(aes(fill = intraguild.type),
                outlier.shape = NA,
                alpha = .4) +
-  scale_color_OkabeIto(darken = .2,name = "Intra-guild \ninteractions") +
-  scale_fill_OkabeIto(darken = .2,name = "Intra-guild \ninteractions") +
+  scale_color_OkabeIto(darken = .2,name = "Intra-guild \ncompetition") +
+  scale_fill_OkabeIto(darken = .2,name = "Intra-guild \ncompetition") +
   labs(x = "", y = "log(exclusion ratios)") +
   theme_bw() +
   theme(strip.background = element_blank())+

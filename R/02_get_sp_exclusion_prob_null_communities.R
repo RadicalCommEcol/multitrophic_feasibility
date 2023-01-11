@@ -4,6 +4,9 @@
 # it is parallelized. Note that this script obtains the metrics for the 
 # randomized communities.
 
+# NOTE: to ensure reproducibility, you will have to modify the path inside 
+# the foreach loop (lines 121-123)
+
 # INPUT
 # community matrices: "results/community_matrices.RData"
 # community names: "results/community_names.RData"

@@ -81,7 +81,7 @@ standard.fd <- ggplot(fd.all, aes(x = intraguild.type, y = fd.average)) +
   NULL
 # standard.fd
 
-ggsave(filename = paste("results/images/standard_fd",vers,".pdf",sep=""),plot = standard.fd,
-       device = cairo_pdf,
-       width = 10,height = 4,dpi = 300)
+# ggsave(filename = paste("results/images/standard_fd",vers,".pdf",sep=""),plot = standard.fd,
+#        device = cairo_pdf,
+#        width = 10,height = 4,dpi = 300)
 

@@ -1,4 +1,15 @@
 
+# generate figures 
+
+# INPUT
+# feasibility domains: "results/feasibility_domain_{observed/null}.csv"
+
+# OUTPUT
+# Figures
+#   feasiblity domain distributions: Figure 4
+
+# -------------------------------------------------------------------------
+
 library(tidyverse)
 library(cowplot)
 library(colorblindr)

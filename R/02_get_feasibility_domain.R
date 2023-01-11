@@ -7,6 +7,9 @@
 # "get_feasibility_domain_null_communities"
 # "get_sp_exclusion_prob_null_communities"
 
+# NOTE: to ensure reproducibility, you will have to modify the path inside 
+# the foreach loop (line 106)
+
 # INPUT
 # community matrices: "results/community_matrices.RData"
 # community names: "results/community_names.RData"

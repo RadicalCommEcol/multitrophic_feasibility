@@ -2,6 +2,9 @@
 # obtain community-level network metrics for the observed and
 # randomized communities
 
+# NOTE: to ensure reproducibility, you will have to modify the path inside 
+# the foreach loop (lines 482-486)
+
 # INPUT
 # community matrices: "results/community_matrices.RData"
 # community names: "results/community_names.RData"

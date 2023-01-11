@@ -4,6 +4,9 @@
 # it is parallelized. Note that this script obtains the metrics for the 
 # randomized communities.
 
+# NOTE: to ensure reproducibility, you will have to modify the path inside 
+# the foreach loop (lines 126-128)
+
 # INPUT
 # community matrices: "results/community_matrices.RData"
 # community names: "results/community_names.RData"
@@ -64,7 +67,7 @@ intraguild.types <- names(community_matrices)
 null.replicates <- 50
 
 # IMPORTANT - set this if running more than once, e.g. to add more replicates
-run.number <- 2
+run.number <- 1
 
 # replicates for the feasibility calculations
 omega.replicates <- 100

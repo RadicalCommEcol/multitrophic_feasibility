@@ -1,5 +1,7 @@
 Data and code for: Non-random interactions within and across guilds shape the potential to coexist in multi-trophic ecological communities
 
+[![DOI](https://zenodo.org/badge/540769909.svg)](https://zenodo.org/badge/latestdoi/540769909)
+
 ### Summary
 
 the raw data is available in the /data folder, in .RData files that hold nested lists with the raw values of number of visits and number of plant co-occurrences. Every other manipulation is stored in the /results folder.

@@ -1,4 +1,4 @@
-Data and code for: The non-random structure of multi-trophic ecological interactions maximises species coexistence
+Data and code for: Non-random interactions within and across guilds shape the potential to coexist in multi-trophic ecological communities
 
 ### Summary
 

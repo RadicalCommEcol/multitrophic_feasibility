@@ -27,7 +27,7 @@ isotropy_metrics_4_int_matrix <- function(A_int, number_Omega_replicates,
     
     probability_vector <- prob_excl_Omega_df[,i+1] %>% pull()
     
-    isotropy_rep <-  c(isotropy_rep, isotropy_index(probability_vector))
+    isotropy_rep <-  c(isotropy_rep, anisotropy_index(probability_vector))
     PV_rep <- c(PV_rep, PV(probability_vector))
     
   }

@@ -8,4 +8,12 @@ the raw data is available in the /data folder, in .RData files that hold nested 
 
 All results and figures from the study are already generated in the relevant folders. To re-run the analyses, run each script in order. Script with prefix 01 is used to generate community matrices; scripts with prefix 02 are used to calculate different metrics and results; scripts with prefix 03 analyse these metrics and generate figures and tables.
 
+In particular, figures and tables of the main text can be generated via the following scripts:
+
+- Figure 1: "aux_plot_network_layouts". This is midway between R-code and manual tweaking
+- Figure 2: "03_plot_feasibility_domain"
+- Figure 3: "03_plot_sp_metrics"
+- Figure 4: "03_plot_feasibility_distribution"
+- Figure 5 and table 1: "03_feasibility_metrics_analysis"
+
 Note that there are different auxiliary scripts both in the main R folder and in one subfolder. Also, please note that some of the scripts are very computationally demanding.

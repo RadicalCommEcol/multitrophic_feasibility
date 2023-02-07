@@ -245,8 +245,8 @@ m2 <- lmerTest::lmer(log(omega_mean) ~ avg_diagonal_dominance + avg_intraguild_n
 #                      booktabs=FALSE))
 # -------------------------------------------------------------------------
 
-edd <- effects::effect("avg_diagonal_dominance",m22,xlevels = 20)
-eintra <- effects::effect("avg_intraguild_niche_overlap",m22,xlevels = 20)
+edd <- effects::effect("avg_diagonal_dominance",m2,xlevels = 20)
+eintra <- effects::effect("avg_intraguild_niche_overlap",m2,xlevels = 20)
 # plot(ec)
 # plot(ed)
 
